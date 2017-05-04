@@ -1,0 +1,51 @@
+﻿@model KaraokeReservation.ViewsModel.WatchViewModel
+
+@{
+    ViewBag.Title = "All";
+    int cntr = 0;
+}
+
+<style>
+    img {
+        height: 150px;
+    }
+</style>
+
+<h2>All</h2>
+
+<div class="row">
+    @foreach (var item in Model.ListOfVideoModels)
+    {
+        cntr += 1;
+
+        if (cntr == 1)
+        {
+            @:<div class="col-md-2 col-md-offset-1 col-sm-12">
+        }
+        else
+        {
+            @:<div class="col-md-2 col-sm-12">
+        }
+
+        <p>Title : @item.Title</p>
+
+        <a href="@Url.Action("Index", "Watch", routeValues: new { id = item.Id })">
+            <img src="~/FileUpload/Thumbnails/@string.Concat(item.Id, ".jpg")"
+                 width="250"
+                 height="250" class="img-responsive" />
+        </a>
+        <span>@item.UploaderId</span>
+                   
+        
+         @:</div>
+
+
+
+
+
+
+
+
+    }
+</div>
+

@@ -20,9 +20,14 @@ namespace KaraokeReservation.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Artist> Artist { get; set; }
+        public DbSet<Video> Video { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+          
         }
 
         public static ApplicationDbContext Create()

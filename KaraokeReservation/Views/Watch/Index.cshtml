@@ -1,0 +1,36 @@
+﻿@model KaraokeReservation.ViewsModel.VideoViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    video {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<h2>@Model.Title</h2>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <video style="border:5px solid;"
+                   controls="controls"
+                   width="600"
+                   poster="~/FileUpload/Thumbnails/@string.Concat(Model.Id.ToString(), ".", "jpg")"
+                   src="~/FileUpload/@string.Concat(Model.Id.ToString(), ".", Model.FileExtension)"
+                   class="video-responsive"></video>
+
+
+            <p>@Model.Description</p>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+
+      
+    </div>
+</div>
